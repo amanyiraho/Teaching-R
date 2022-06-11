@@ -126,231 +126,256 @@ class: inverse center middle
 ---
 class: inverse center middle
 
-
 ## Lets dive into actual R
 
+---
 
-![A wide image with a diagram of branching in git.](.intro-presentation/assets/images/r-consoles.png)
+## Simple baisc R code
+```r
+8 + 8
+
+## [1] 16
+```
+
+```r
+sum(2, 2, 4)
+
+## [1] 8
+
+```
+
+```r
+1==1
+## [1] TRUE
+```
+---
+class: middle inverse center
+
+## Okey How and where do we write that in R!!
+
+---
+## Default R view
+<center><img 
+src="https://raw.githubusercontent.com/amanyiraho/Teaching-R/main/intro-presentation/assets/images/r-console.png" alt="GithHub Octocat" height="450px" /></center>
+
+---
+## Default R studio View
+<center><img 
+src="https://raw.githubusercontent.com/amanyiraho/Teaching-R/main/intro-presentation/assets/images/r-studio-without-source-plane.png" alt="GithHub Octocat" height="500px width = "900px" /></center>
+
+---
+## What you will be normally working with!!
+
+<center><img 
+src="https://raw.githubusercontent.com/amanyiraho/Teaching-R/main/intro-presentation/assets/images/r-studio-with-source-panel.png" alt="GithHub Octocat" height="500px" width = "900px" /></center>
+
+---
+class: center middle inverse
+
+## Okey But we need to see that in action !!
+
+![Message was not clear](https://media.giphy.com/media/l2Sq1s7U0ReCLxMFG/giphy.gif)
+
+---
+# Create R rojects
+
+Install packages
+
+**What is a package?**
+
+```r
+install.packages(’ggplot2’)
+```
+Load packages
+```r
+library(ggplot2)
+```
+**How do you know a package exists?**
+
+> CRAN, Google, and being part of the in the community  
+
+**What is a function?**
+
+```r
+?ggplot
+?geom_bar
+```
+
+---
+
+## Lets plot a graph with ggplot2
+
+**looking how to create a dataframe**
+
+_Wait, what is a dataframe?_
+
+
+```{r eval=T}
+sn <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10) 
+
+weight <-  c(80, 70, 65.5, 50, 120, 72, 80, 70, 60, 77)
+
+age <-  c(30,30, 31, 33, 33, 33, 35, 36, 37, 34 )
+
+age_data <- data.frame(sn , weight, age )
+
+kableExtra::kable(head(age_data, 4),  format = 'html')
+```
+
+---
+
+## Basic ggplot2
+
+```{r eval=T}
+library(ggplot2)
+
+ggplot(data = age_data,   mapping = aes(x = age, y = weight)) +
+  geom_point()
+ 
+```
+
+---
+class: middle center
+
+## Wait cooome on, that's boring!!
+
+**Lets use Public Health data!!**
+
+![Message was not clear](https://media.giphy.com/media/c8RnNkhxXUhGkkpjJO/giphy.gif)
 
 
 ---
 
+### Lets import some sormas data into R
 
----
-## Standard R-studio View
+*Tips* 
 
-
-
-
-
----
-
-### Code Blocks
-
-#### R Code
-
-```{r eval=FALSE}
-ggplot(gapminder) +
-  aes(x = gdpPercap, y = lifeExp, size = pop, color = country) +
-  geom_point() +
-  facet_wrap(~year)
-```
-
-#### JavaScript
-
-```js
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
-
----
-
-### More R Code
-
-```{r eval=FALSE}
-dplyr::starwars %>% dplyr::slice_sample(n = 4)
-```
-
----
-
-```{r message=TRUE, eval=requireNamespace("cli", quietly = TRUE)}
-cli::cli_alert_success("It worked!")
-```
-
---
-
-```{r message=TRUE}
-message("Just a friendly message")
-```
-
---
-
-```{r warning=TRUE}
-warning("This could be bad...")
-```
-
---
-
-```{r error=TRUE}
-stop("I hope you're sitting down for this")
-```
+1. You should know your working directory use `getwd()` function
+1. From there use that path to locate your data
+1. Make sure you know how your data is structured 
 
 
----
-layout: true
-
-## Tables
-
----
-exclude: `r if (requireNamespace("tibble", quietly=TRUE)) "false" else "true"`
-
-```{r eval=requireNamespace("tibble", quietly=TRUE)}
-tibble::as_tibble(mtcars)
-```
-
----
+#### Importing data
 
 ```{r}
-knitr::kable(head(mtcars), format = 'html')
-```
-
----
-exclude: `r if (requireNamespace("DT", quietly=TRUE)) "false" else "true"`
-
-```{r eval=requireNamespace("DT", quietly=TRUE)}
-DT::datatable(head(mtcars), fillContainer = FALSE, options = list(pageLength = 4))
-```
-
----
-layout: true
-
-## Lists
-
----
-
-.pull-left[
-#### Here is an unordered list:
-
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-]
-
-.pull-right[
-
-#### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-]
-
----
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
----
-
-### Nesting an ol in ul in an ol
-
-- level 1 item (ul)
-  1. level 2 item (ol)
-  1. level 2 item (ol)
-    - level 3 item (ul)
-    - level 3 item (ul)
-- level 1 item (ul)
-  1. level 2 item (ol)
-  1. level 2 item (ol)
-    - level 3 item (ul)
-    - level 3 item (ul)
-  1. level 4 item (ol)
-  1. level 4 item (ol)
-    - level 3 item (ul)
-    - level 3 item (ul)
-- level 1 item (ul)
-
----
-layout: true
-
-## Plots
-
----
-
-```{r plot-example, eval=requireNamespace("ggplot2", quietly=TRUE)}
-library(ggplot2)
-(g <- ggplot(mpg) + aes(hwy, cty, color = class) + geom_point())
+sormas_measles_data_messy <- read.csv("/Volumes/Robinson/R projects/Teaching-R/intro-presentation/data/sormas_mealses_cases_2021.csv")
+kableExtra::kable( head(sormas_measles_data_messy))
 ```
 
 ---
 
-```{r plot-example-themed, eval=requireNamespace("showtext", quietly=TRUE) && requireNamespace("ggplot2", quietly=TRUE)}
-g + xaringanthemer::theme_xaringan(text_font_size = 16, title_font_size = 18) +
-  ggtitle("A Plot About Cars")
+### This is the power of a programming language you don't have to delete the first 2 row all the time.
+
+
+```{r}
+
+sormas_measles_data <- read.csv("/Volumes/Robinson/R projects/Teaching-R/intro-presentation/data/sormas_mealses_cases_2021.csv",
+                                skip = 2)
+
+kableExtra::kable( head(sormas_measles_data))
+
 ```
 
-.footnote[Requires `{showtext}`]
-
----
-layout: false
-
-## Square image
-
-<center><img src="https://octodex.github.com/images/labtocat.png" alt="GithHub Octocat" height="400px" /></center>
-
-.footnote[GitHub Octocat]
-
 ---
 
-### Wide image
+class: middle center
 
-![A wide image with a diagram of branching in git.](https://docs.github.com/assets/images/help/repository/branching.png)
+## Lets answer some Public Health Questions with the sormas data
 
-.footnote[Wide images scale to 100% slide width]
+Qn 1: What is the number of Women and Men are in this dataset?
+
+Qn 2: Which age-groups exist and how many are they ?
+
+Qn 3: Which State has the highest number of vaccinated individuals?
+
+**You can suggest yours!!**
+
+---
+class: middle 
+
+## Do you see that we need to find a way to manipulate the data.
+For example for the above questions:
+
+1. We need to find a way to count Women and Men in the dataset
+
+2. Find all unique age-groups and count them.
+
+3. Filter the dataset by those who are vaccinated and then count by state.
+
+> **But jumping into data manipulation right now is like,**
+>
+> **Dropping you in the middle of a Forest and they tell you to**
+>
+> **Find your way home**
+>
+> **Honestly you need survival skills**
+
+---
+class: middle center inverse
+
+# Let's get some survival skills🔥🏕️
+
+### R langunge Basics!!
+
+---
+## Basic Operators 
+*(Some are like the excel Operators)*
+
+```
+## Arithmetic  operators
+2 + 2
+2/2
+2*2
+2^2
+23 %% 2 # Remainder -> 1
+
+## Logical operators
+2 == 2
+42 >= 2
+2 <= 42
+2 != 42
+```
+---
+
+## R facts
+
+```
+x <- 10 # Assigment operator
+
+#[1] 10
+
+y <- 1:x # Sequence
+
+#  [1]  1  2  3  4  5  6  7  8  9 10
+
+```
+indexing in R starts from one (1) **NOT** like python, or C which starts with zero (0)
+
+```
+y[0]     #indexing using zero (0) doesn't work it returns a zero integer
+#integer(0)
+
+y[1] # Element selection starts with one (1)
+```
 
 ---
 
-## Two images
+## Data types
 
-.pull-left[
-![A GitHub Octocat, style "mother hubber"](https://octodex.github.com/images/motherhubbertocat.png)
-]
+```r
+1L # integer
+1.0 # numeric
+’1’ # character
+TRUE == 1 # logical
+FALSE == 0 # logical
+NA # NA
+factor() # factor
 
-.pull-right[
-![A GitHub Octocat, style "dinotcat"](https://octodex.github.com/images/dinotocat.png)
-]
+#You can check to see what type a variable is with class(x) or
+is.numeric(), is.character(),# etc
 
----
+```
 
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
 
 ---
 class: center, middle
