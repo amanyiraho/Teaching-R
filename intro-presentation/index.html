@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Introduction to R</title>
+    <title>R capacity building session</title>
     <meta charset="utf-8" />
     <meta name="author" content="NPHCDA" />
     <meta name="author" content="AFENET GEEKS" />
-    <meta name="date" content="2022-06-10" />
+    <meta name="date" content="2022-06-30" />
     <script src="index_files/header-attrs/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -14,10 +14,10 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Introduction to R
+# R capacity building session
 ]
 .subtitle[
-## Lets get started
+## Introduction to R
 ]
 .author[
 ### NPHCDA
@@ -26,7 +26,7 @@ class: center, middle, inverse, title-slide
 ### AFENET GEEKS
 ]
 .date[
-### 2022-06-10
+### 2022-06-30
 ]
 
 ---
@@ -47,27 +47,6 @@ class: center, middle, inverse, title-slide
 
 
 ---
-name: colors
-
-## Where do we really start
-
---
-
-Install R
--  cloud.r-project.org
-
---
-
-Install R-Studio
- 
-- rstudio.com
-
---
-
-Download the code for this session
-
-
----
 
 # What is R?
 
@@ -78,6 +57,9 @@ statistical computing and graphics.
 
 - R can be easily extended with “packages”:
 
+- Used to perform interesting tasks such as linear regression, logistic regression, time series, statistical inference, and much more. 
+
+- used for creating data visuals, reports, geographical analysis and web applications.
 
 
 ---
@@ -88,6 +70,7 @@ statistical computing and graphics.
 
 - The community &amp;#x1F468;&amp;#x200D;&amp;#x1F4BB;
 
+
 - One of the most popular tools for data analysis
 
 - Can develop Web applications, dashboards, automatic reports, APIs, 
@@ -95,6 +78,7 @@ statistical computing and graphics.
    **This Presentation was created using R** 
 
 - Can easily integrate with other Languages Python, SQL, JavaScript, CSS 
+
 
 ---
 
@@ -110,6 +94,34 @@ It’s a programming language, not a point-and-click solution 🥶
 
 Slower than compiled languages like C, C++
 ]
+
+---
+
+name: colors
+
+# Where do we really start
+
+--
+
+### Install R from  [cloud.r-project.org](cloud.r-project.org)
+ 
+  [mac (https://cran.r-project.org/bin/macosx/)](https://cran.r-project.org/bin/macosx/) 
+  
+  [windows (https://cran.r-project.org/bin/windows/base/)](https://cran.r-project.org/bin/windows/base/)
+_______________________
+--
+
+### Install R-Studio IDE
+ 
+- [rstudio IDE (https://www.rstudio.com/products/rstudio/download/)](https://www.rstudio.com/products/rstudio/download/) 
+
+
+---
+class: middle center
+## RStudio cloud
+
+RStudio Cloud is another product from [rstudio](rstudio.com) which gives you a lightweight, cloud-based version of RStudio Desktop IDE that allows you work with your r scripts, projects online and also share with your colleagues. 
+
 
 ---
 class: inverse center middle
@@ -173,7 +185,25 @@ class: center middle inverse
 ![Message was not clear](https://media.giphy.com/media/l2Sq1s7U0ReCLxMFG/giphy.gif)
 
 ---
-# Create R rojects
+
+## Project and file structure in RStudio
+
+- Files: scripts, data files, etc
+- Projects: New Project, R Package, other project types
+
+## Set and get working directory
+
+```r
+# insert your directory location or address into the double quotation mark
+ setwd("images/alison/")
+
+# get and display working directory location or address
+getwd()
+```
+
+
+---
+# Packages
 
 Install packages
 
@@ -188,14 +218,24 @@ library(ggplot2)
 ```
 **How do you know a package exists?**
 
-&gt; CRAN, Google, and being part of the in the community  
+&gt; CRAN, Google, and being part of a community  
 
-**What is a function?**
+---
+
+## Getting help and resources
+
+- type question mark before a function or package name to get more information as show below
 
 ```r
-?ggplot
-?geom_bar
+?mean
 ```
+
+- get specific package related to your field or profession from CRAN online using the search format as shown.
+
+&gt; **https://cran.r-project.org› package=packagename**
+
+&gt; *search on stackoverflow, Google, build your network*
+
 
 ---
 
@@ -531,49 +571,132 @@ class: middle center inverse
 ### R langunge Basics!!
 
 ---
-## Basic Operators 
-*(Some are like the excel Operators)*
+class: middle center 
+## Data Types and Structures in R
 
-```
-## Arithmetic  operators
-2 + 2
-2/2
-2*2
-2^2
-23 %% 2 # Remainder -&gt; 1
+### Understanding Data Types
 
-## Logical operators
-2 == 2
-42 &gt;= 2
-2 &lt;= 42
-2 != 42
-```
----
+The best and right way to start your journey learning R programming language is to have a solid understanding of data types and structures and when to use them.
 
-## R facts
+To begin, **remember that in R, everything is an object**.
 
-```
-x &lt;- 10 # Assigment operator
-
-#[1] 10
-
-y &lt;- 1:x # Sequence
-
-#  [1]  1  2  3  4  5  6  7  8  9 10
-
-```
-indexing in R starts from one (1) **NOT** like python, or C which starts with zero (0)
-
-```
-y[0]     #indexing using zero (0) doesn't work it returns a zero integer
-#integer(0)
-
-y[1] # Element selection starts with one (1)
-```
 
 ---
 
-## Data types
+## a)  Character 
+ 
+symbols, letters, words or phrases in single or double quotation marks
+
+```r
+"bread"
+
+'coffee'
+
+"12"
+
+"I need 2 cups of coffee."
+
+```
+
+
+```r
+class("12") 
+```
+
+```
+FALSE [1] "character"
+```
+
+```r
+typeof("12") 
+```
+
+```
+FALSE [1] "character"
+```
+
+---
+
+## b)  numeric
+
+```r
+1
+
+123
+
+12.3
+
+```
+
+```r
+class(12.3) 
+```
+
+```
+FALSE [1] "numeric"
+```
+
+```r
+typeof(123) 
+```
+
+```
+FALSE [1] "double"
+```
+
+---
+
+## c)  Integer 
+
+a special case of numeric data, discrete values like unique identifiers eg. student id. To store a value as an integer, we need to specify it as such. Integers are usually followed by the capital 'L' notation to denote the data type.
+
+```r
+12
+
+100
+
+10L
+
+```
+
+```r
+class(100) 
+```
+
+```
+FALSE [1] "numeric"
+```
+
+```r
+typeof(10L) 
+```
+
+```
+FALSE [1] "integer"
+```
+
+---
+
+## d)  logical - logical or boolean values i.e. TRUE or FALSE.
+
+```r
+FALSE
+TRUE
+```
+
+
+```r
+class(TRUE) 
+```
+
+```
+FALSE [1] "logical"
+```
+
+
+---
+
+## Summary about data types
 
 ```r
 1L # integer
@@ -588,6 +711,364 @@ factor() # factor
 is.numeric(), is.character(),# etc
 
 ```
+
+---
+
+## R facts
+
+```r
+x &lt;- 10 # Assigment operator
+
+#[1] 10
+
+y &lt;- 1:x # Sequence
+
+#  [1]  1  2  3  4  5  6  7  8  9 10
+
+```
+indexing in R starts from one (1) **NOT** like python, or C which starts with zero (0)
+
+```r
+y[0]     #indexing using zero (0) doesn't work it returns a zero integer
+#integer(0)
+
+y[1] # Element selection starts with one (1)
+```
+
+
+---
+
+## Functions in R
+
+### Why functions?
+
+-   automate common tasks
+
+-   named function making codes easier to understand.
+
+-   update code easily when requirements or tasks are changed.
+
+-   eliminate copy and paste of same codes in multiple places in a single script
+
+&gt; **We shall get back to functions is a big topic**
+
+
+---
+class: middle center
+
+## Building Block
+ 
+ The elements of each of these data types can be combined to form data structures, such as data frames, atomic vectors, etc.
+
+---
+class: middle center
+
+## Understanding Data structures
+
+Data structures are a  means of organizing data for effective use. 
+This helps to reduce the challenges faced in managing space and performance of our codes.
+
+As with other programming languages, in R programming language, different variables are used to store different data which are stored in reserved area in the system memory.
+
+
+In this section, we will be covering the **some** of the data structures in R:
+
+---
+
+## 1.  Vectors
+
+
+
+```r
+#c()
+
+my_vector &lt;- c("bags", "shoes", "wrist-watch", "money")
+
+my_vector
+```
+
+```
+FALSE [1] "bags"        "shoes"       "wrist-watch" "money"
+```
+
+--
+
+
+```r
+my_alphabets &lt;- letters[1:10]
+
+my_alphabets
+```
+
+```
+FALSE  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j"
+```
+
+---
+
+## 2.  Lists
+
+
+```r
+# lists
+a = c(2, 3, 5) 
+b = c("aa", "bb", "cc", "dd", "ee") 
+c = c(TRUE, FALSE, TRUE, FALSE, FALSE) 
+my_list = list(a, b, c, 3, "My name")   # my_list contains copies of a,b,c,3
+```
+
+--
+
+
+```r
+# The following is a slice containing the second member of my_list, which is a copy of b.
+my_list[2]
+```
+
+```
+FALSE [[1]]
+FALSE [1] "aa" "bb" "cc" "dd" "ee"
+```
+
+--
+
+
+```r
+# Member Reference
+# In order to reference a list member directly, we have to use the double square bracket "[[]]" operator. 
+# The following object my_list[[2]] is the second member of my_list. 
+# In other words, my_list[[2]] is a copy of b, but is not a slice containing b or its copy.
+
+my_list[[2]]
+```
+
+```
+FALSE [1] "aa" "bb" "cc" "dd" "ee"
+```
+
+---
+
+## 3.  Data Frames
+
+**Create a data frame**
+
+```r
+# Create a data frame
+my_df_no_colnames &lt;- data.frame(
+ student_name = c("John", "Buba"),
+  Gender = c(2,3)
+)
+my_df_no_colnames 
+```
+
+```
+FALSE   student_name Gender
+FALSE 1         John      2
+FALSE 2         Buba      3
+```
+
+--
+
+**Assign col names**
+
+
+```r
+names(my_df_no_colnames) &lt;- c("Student", "Sex")
+my_df_no_colnames
+```
+
+```
+FALSE   Student Sex
+FALSE 1    John   2
+FALSE 2    Buba   3
+```
+
+---
+## Create data frame from a vector
+
+
+```r
+# Vectors
+student_names &lt;- c("Michael", "Bello", "Tonye", "Tayo","Yusuf", "Success", "Aisha")
+gender &lt;- c("M","M","F","F","M","M", "F")
+
+# create a Data frame
+# 
+my_df &lt;- data.frame(student_names,gender)
+my_df
+```
+
+```
+FALSE   student_names gender
+FALSE 1       Michael      M
+FALSE 2         Bello      M
+FALSE 3         Tonye      F
+FALSE 4          Tayo      F
+FALSE 5         Yusuf      M
+FALSE 6       Success      M
+FALSE 7         Aisha      F
+```
+
+--
+
+
+```r
+class(my_df)
+```
+
+```
+FALSE [1] "data.frame"
+```
+
+
+---
+## 4. Tibble
+ Create a tibble
+
+```r
+#tibble(1:5, c("a", "b", "c", "d", "e"))
+
+# Check this out! What went wrong?
+#tibble(1:5, c("a","d","e")) 
+```
+
+---
+ ## Create tibble with named columns
+
+```r
+name = c("john", "alexis", "Steph", "Quiera")
+age  = c(24, 44, 26, 25)
+
+my_tbl &lt;- tibble(
+  name = c("jojo", "sofia", "robin", "sisie"),
+  age  = c(14, 13, 16, 15)
+)
+```
+
+
+
+```r
+my_tbl &lt;- tibble(name,age)
+# Print my_df to the screen
+my_tbl
+```
+
+```
+FALSE # A tibble: 4 × 2
+FALSE   name     age
+FALSE   &lt;chr&gt;  &lt;dbl&gt;
+FALSE 1 john      24
+FALSE 2 alexis    44
+FALSE 3 Steph     26
+FALSE 4 Quiera    25
+```
+
+---
+
+## Basic Operators 
+*(Some are like the excel Operators)*
+
+``` r
+## Arithmetic  operators
+2 + 2
+2/2
+2*2
+2^2
+23 %% 2 # Remainder -&gt; 1
+```
+
+```r
+## Logical operators
+2 == 2
+42 &gt;= 2
+2 &lt;= 42
+2 != 42
+```
+---
+class: inverse middle center 
+
+# 🚥
+
+## Control statements
+ Loops, if statements, repeat, switch
+
+---
+
+## for loop
+ 
+ A for loop is used to iterate over a vector in R programming.
+
+```r
+for (val in 1:5){
+  # statement 
+  print(val)
+} 
+
+for (num in c(1,2,3,4,5)) {  
+  print(num + 2)
+}                      
+
+```
+--
+
+
+```r
+x &lt;- c(2,5,3,9,8,11,6)
+count &lt;- 0
+for (val in x) {
+  if(val %% 3 == 0)  
+    count = count+1
+}
+print(count)
+```
+
+```
+FALSE [1] 3
+```
+
+---
+
+### while loop - used to loop until a specific condition is met.
+
+```r
+w &lt;- 5
+while (w &lt; 10) {
+  print(w)
+  w &lt;-  w+1
+}
+```
+
+```
+FALSE [1] 5
+FALSE [1] 6
+FALSE [1] 7
+FALSE [1] 8
+FALSE [1] 9
+```
+
+
+---
+
+## if statements
+
+```r
+a = 10
+b = 40
+
+if(a!=b){
+
+"a is not equal to b"
+
+}else{
+"a is equal to b"
+
+}
+
+## options
+if_else(a!=b, "a is not equal to b", "a is equal to b")
+ifelse(a!=b, "a is not equal to b", "a is equal to b")
+```
+
 
 
 ---
@@ -605,7 +1086,6 @@ The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](http://yihu
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"slideNumberFormat": "%current%",
 "highlightStyle": "github",
 "highlightLines": true,
 "ratio": "16:9",
