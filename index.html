@@ -1,45 +1,1221 @@
 <!DOCTYPE html>
-<html>
+<html lang="" xml:lang="">
   <head>
-    <title>Title</title>
-    <meta charset="utf-8">
-    <style>
-      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
-      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
-
-      body { font-family: 'Droid Serif'; }
-      h1, h2, h3 {
-        font-family: 'Yanone Kaffeesatz';
-        font-weight: normal;
-      }
-      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
-    </style>
+    <title>R capacity building session</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="NPHCDA" />
+    <meta name="author" content="AFENET GEEKS" />
+    <meta name="date" content="2022-06-30" />
+    <script src="index_files/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
+class: center, middle, inverse, title-slide
 
+.title[
+# R capacity building session
+]
+.subtitle[
+## Introduction to R
+]
+.author[
+### NPHCDA
+]
+.author[
+### AFENET GEEKS
+]
+.date[
+### 2022-06-30
+]
+
+---
+
+
+
+
+
+
+
+
+## What we are going to talk today!
+
+- The R Universe
+- Getting set up
+- Working with data
+- Base functions
+
+
+---
+
+# What is R?
+
+- R is an Open Source and free programming language for
+statistical computing and graphics.
+
+- Available for Windows, Mac, and Linux
+
+- R can be easily extended with “packages”:
+
+- Used to perform interesting tasks such as linear regression, logistic regression, time series, statistical inference, and much more. 
+
+- used for creating data visuals, reports, geographical analysis and web applications.
+
+
+---
+
+# Why R?
+
+- Free and open source 
+
+- The community &amp;#x1F468;&amp;#x200D;&amp;#x1F4BB;
+
+
+- One of the most popular tools for data analysis
+
+- Can develop Web applications, dashboards, automatic reports, APIs, 
+
+   **This Presentation was created using R** 
+
+- Can easily integrate with other Languages Python, SQL, JavaScript, CSS 
+
+
+---
+
+# Some downsides of R
+
+.left-column[
+
+
+]
+
+.right-column[
+It’s a programming language, not a point-and-click solution 🥶
+
+Slower than compiled languages like C, C++
+]
+
+---
+
+name: colors
+
+# Where do we really start
+
+--
+
+### Install R from  [cloud.r-project.org](cloud.r-project.org)
+ 
+  [mac (https://cran.r-project.org/bin/macosx/)](https://cran.r-project.org/bin/macosx/) 
+  
+  [windows (https://cran.r-project.org/bin/windows/base/)](https://cran.r-project.org/bin/windows/base/)
+_______________________
+--
+
+### Install R-Studio IDE
+ 
+- [rstudio IDE (https://www.rstudio.com/products/rstudio/download/)](https://www.rstudio.com/products/rstudio/download/) 
+
+
+---
+class: middle center
+## RStudio cloud
+
+RStudio Cloud is another product from [rstudio](rstudio.com) which gives you a lightweight, cloud-based version of RStudio Desktop IDE that allows you work with your r scripts, projects online and also share with your colleagues. 
+
+
+---
+class: inverse center middle
+
+# Lets first slow down !!!
+
+**Any questions?**
+
+
+---
+class: inverse center middle
+
+## Lets dive into actual R
+
+---
+
+## Simple baisc R code
+```r
+8 + 8
+
+## [1] 16
+```
+
+```r
+sum(2, 2, 4)
+
+## [1] 8
+
+```
+
+```r
+1==1
+## [1] TRUE
+```
+---
+class: middle inverse center
+
+## Okey How and where do we write that in R!!
+
+---
+## Default R view
+&lt;center&gt;&lt;img 
+src="https://raw.githubusercontent.com/amanyiraho/Teaching-R/main/intro-presentation/assets/images/r-console.png" alt="GithHub Octocat" height="450px" /&gt;&lt;/center&gt;
+
+---
+## Default R studio View
+&lt;center&gt;&lt;img 
+src="https://raw.githubusercontent.com/amanyiraho/Teaching-R/main/intro-presentation/assets/images/r-studio-without-source-plane.png" alt="GithHub Octocat" height="500px width = "900px" /&gt;&lt;/center&gt;
+
+---
+## What you will be normally working with!!
+
+&lt;center&gt;&lt;img 
+src="https://raw.githubusercontent.com/amanyiraho/Teaching-R/main/intro-presentation/assets/images/r-studio-with-source-panel.png" alt="GithHub Octocat" height="500px" width = "900px" /&gt;&lt;/center&gt;
+
+---
+class: center middle inverse
+
+## Okey But we need to see that in action !!
+
+![Message was not clear](https://media.giphy.com/media/l2Sq1s7U0ReCLxMFG/giphy.gif)
+
+---
+
+## Project and file structure in RStudio
+
+- Files: scripts, data files, etc
+- Projects: New Project, R Package, other project types
+
+## Set and get working directory
+
+```r
+# insert your directory location or address into the double quotation mark
+ setwd("images/alison/")
+
+# get and display working directory location or address
+getwd()
+```
+
+
+---
+# Packages
+
+Install packages
+
+**What is a package?**
+
+```r
+install.packages(’ggplot2’)
+```
+Load packages
+```r
+library(ggplot2)
+```
+**How do you know a package exists?**
+
+&gt; CRAN, Google, and being part of a community  
+
+---
+
+## Getting help and resources
+
+- type question mark before a function or package name to get more information as show below
+
+```r
+?mean
+```
+
+- get specific package related to your field or profession from CRAN online using the search format as shown.
+
+&gt; **https://cran.r-project.org› package=packagename**
+
+&gt; *search on stackoverflow, Google, build your network*
+
+
+---
+
+## Lets plot a graph with ggplot2
+
+**looking how to create a dataframe**
+
+_Wait, what is a dataframe?_
+
+
+
+```r
+sn &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10) 
+
+weight &lt;-  c(80, 70, 65.5, 50, 120, 72, 80, 70, 60, 77)
+
+age &lt;-  c(30,30, 31, 33, 33, 33, 35, 36, 37, 34 )
+
+age_data &lt;- data.frame(sn , weight, age )
+
+kableExtra::kable(head(age_data, 4),  format = 'html')
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; sn &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; weight &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; age &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 80.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 30 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 70.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 30 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 65.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 31 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 50.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 33 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+## Basic ggplot2
+
+
+```r
+library(ggplot2)
+
+ggplot(data = age_data,   mapping = aes(x = age, y = weight)) +
+  geom_point()
+```
+
+&lt;img src="index_files/figure-html/unnamed-chunk-2-1.png" width="100%" /&gt;
+
+---
+class: middle center
+
+## Wait cooome on, that's boring!!
+
+**Lets use Public Health data!!**
+
+![Message was not clear](https://media.giphy.com/media/c8RnNkhxXUhGkkpjJO/giphy.gif)
+
+
+---
+
+### Lets import some sormas data into R
+
+*Tips* 
+
+1. You should know your working directory use `getwd()` function
+1. From there use that path to locate your data
+1. Make sure you know how your data is structured 
+
+
+#### Importing data
+
+
+```r
+sormas_measles_data_messy &lt;- read.csv("/Volumes/Robinson/R projects/Teaching-R/intro-presentation/data/sormas_mealses_cases_2021.csv")
+kableExtra::kable( head(sormas_measles_data_messy))
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; CaseData &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; CaseData.1 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Person &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Person.1 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Person.2 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; CaseData.2 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; CaseData.3 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; CaseData.4 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; CaseData.5 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; CaseData.6 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; uuid &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; disease &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; person.sex &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; person.approximateAge &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; person.ageGroup &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; reportDate &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; responsibleRegion &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; responsibleDistrict &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; addressGpsCoordinates &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; vaccinationStatus &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ##Case ID &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Disease &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Sex &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Age &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Age group &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Date of report (dd/MM/yyyy) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Responsible state &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Responsible LGA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; GPS coordinates of the address &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Vaccination status &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; UHEHTA-WDTABE-CCJLAJ-D2RV2K2U &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Measles &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0--4 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 31/12/2021 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Sokoto &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Kware &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Unvaccinated &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; THKYMB-PP5ODY-TTD7S2-ULOOSMNA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Measles &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 5--9 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 31/12/2021 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Katsina &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Katsina &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Unknown &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; WGAM6C-VPS6GU-HTOCQV-QVFCSOTA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Measles &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0--4 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 31/12/2021 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Katsina &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Katsina &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Unvaccinated &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; QEISAK-VYKY6U-6IWR7Q-KGQVCF2U &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Measles &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Female &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0--4 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 31/12/2021 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Katsina &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Katsina &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Unknown &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+### This is the power of a programming language you don't have to delete the first 2 row all the time.
+
+
+
+```r
+sormas_measles_data &lt;- read.csv("/Volumes/Robinson/R projects/Teaching-R/intro-presentation/data/sormas_mealses_cases_2021.csv",
+                                skip = 2)
+
+kableExtra::kable( head(sormas_measles_data))
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; X..Case.ID &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Disease &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Sex &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Age &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Age.group &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Date.of.report..dd.MM.yyyy. &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Responsible.state &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Responsible.LGA &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; GPS.coordinates.of.the.address &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Vaccination.status &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; UHEHTA-WDTABE-CCJLAJ-D2RV2K2U &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Measles &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0--4 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 31/12/2021 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Sokoto &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Kware &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Unvaccinated &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; THKYMB-PP5ODY-TTD7S2-ULOOSMNA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Measles &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 5--9 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 31/12/2021 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Katsina &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Katsina &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Unknown &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; WGAM6C-VPS6GU-HTOCQV-QVFCSOTA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Measles &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0--4 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 31/12/2021 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Katsina &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Katsina &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Unvaccinated &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; QEISAK-VYKY6U-6IWR7Q-KGQVCF2U &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Measles &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Female &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0--4 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 31/12/2021 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Katsina &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Katsina &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Unknown &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; W2OGX6-F5ECJS-N374GR-ZX5CSEQM &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Measles &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Male &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0--4 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 31/12/2021 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Jigawa &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Hadejia &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Unvaccinated &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; W4DHES-DWHDBH-BBY4F3-A3QWSFYM &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Measles &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Female &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0--4 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 31/12/2021 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Jigawa &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Hadejia &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Unvaccinated &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+class: middle center
+
+## Lets answer some Public Health Questions with the sormas data
+
+Qn 1: What is the number of Women and Men are in this dataset?
+
+Qn 2: Which age-groups exist and how many are they ?
+
+Qn 3: Which State has the highest number of vaccinated individuals?
+
+**You can suggest yours!!**
+
+---
+class: middle 
+
+## Do you see that we need to find a way to manipulate the data.
+For example for the above questions:
+
+1. We need to find a way to count Women and Men in the dataset
+
+2. Find all unique age-groups and count them.
+
+3. Filter the dataset by those who are vaccinated and then count by state.
+
+&gt; **But jumping into data manipulation right now is like,**
+&gt;
+&gt; **Dropping you in the middle of a Forest and they tell you to**
+&gt;
+&gt; **Find your way home**
+&gt;
+&gt; **Honestly you need survival skills**
+
+---
+class: middle center inverse
+
+# Let's get some survival skills🔥🏕️
+
+### R langunge Basics!!
+
+---
+class: middle center 
+## Data Types and Structures in R
+
+### Understanding Data Types
+
+The best and right way to start your journey learning R programming language is to have a solid understanding of data types and structures and when to use them.
+
+To begin, **remember that in R, everything is an object**.
+
+
+---
+
+## a)  Character 
+ 
+symbols, letters, words or phrases in single or double quotation marks
+
+```r
+"bread"
+
+'coffee'
+
+"12"
+
+"I need 2 cups of coffee."
+
+```
+
+
+```r
+class("12") 
+```
+
+```
+FALSE [1] "character"
+```
+
+```r
+typeof("12") 
+```
+
+```
+FALSE [1] "character"
+```
+
+---
+
+## b)  numeric
+
+```r
+1
+
+123
+
+12.3
+
+```
+
+```r
+class(12.3) 
+```
+
+```
+FALSE [1] "numeric"
+```
+
+```r
+typeof(123) 
+```
+
+```
+FALSE [1] "double"
+```
+
+---
+
+## c)  Integer 
+
+a special case of numeric data, discrete values like unique identifiers eg. student id. To store a value as an integer, we need to specify it as such. Integers are usually followed by the capital 'L' notation to denote the data type.
+
+```r
+12
+
+100
+
+10L
+
+```
+
+```r
+class(100) 
+```
+
+```
+FALSE [1] "numeric"
+```
+
+```r
+typeof(10L) 
+```
+
+```
+FALSE [1] "integer"
+```
+
+---
+
+## d)  logical - logical or boolean values i.e. TRUE or FALSE.
+
+```r
+FALSE
+TRUE
+```
+
+
+```r
+class(TRUE) 
+```
+
+```
+FALSE [1] "logical"
+```
+
+
+---
+
+## Summary about data types
+
+```r
+1L # integer
+1.0 # numeric
+’1’ # character
+TRUE == 1 # logical
+FALSE == 0 # logical
+NA # NA
+factor() # factor
+
+#You can check to see what type a variable is with class(x) or
+is.numeric(), is.character(),# etc
+
+```
+
+---
+
+## R facts
+
+```r
+x &lt;- 10 # Assigment operator
+
+#[1] 10
+
+y &lt;- 1:x # Sequence
+
+#  [1]  1  2  3  4  5  6  7  8  9 10
+
+```
+indexing in R starts from one (1) **NOT** like python, or C which starts with zero (0)
+
+```r
+y[0]     #indexing using zero (0) doesn't work it returns a zero integer
+#integer(0)
+
+y[1] # Element selection starts with one (1)
+```
+
+
+---
+
+## Functions in R
+
+### Why functions?
+
+-   automate common tasks
+
+-   named function making codes easier to understand.
+
+-   update code easily when requirements or tasks are changed.
+
+-   eliminate copy and paste of same codes in multiple places in a single script
+
+&gt; **We shall get back to functions is a big topic**
+
+
+---
+class: middle center
+
+## Building Block
+ 
+ The elements of each of these data types can be combined to form data structures, such as data frames, atomic vectors, etc.
+
+---
+class: middle center
+
+## Understanding Data structures
+
+Data structures are a  means of organizing data for effective use. 
+This helps to reduce the challenges faced in managing space and performance of our codes.
+
+As with other programming languages, in R programming language, different variables are used to store different data which are stored in reserved area in the system memory.
+
+
+In this section, we will be covering the **some** of the data structures in R:
+
+---
+
+## 1.  Vectors
+
+
+
+```r
+#c()
+
+my_vector &lt;- c("bags", "shoes", "wrist-watch", "money")
+
+my_vector
+```
+
+```
+FALSE [1] "bags"        "shoes"       "wrist-watch" "money"
+```
+
+--
+
+
+```r
+my_alphabets &lt;- letters[1:10]
+
+my_alphabets
+```
+
+```
+FALSE  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j"
+```
+
+---
+
+## 2.  Lists
+
+
+```r
+# lists
+a = c(2, 3, 5) 
+b = c("aa", "bb", "cc", "dd", "ee") 
+c = c(TRUE, FALSE, TRUE, FALSE, FALSE) 
+my_list = list(a, b, c, 3, "My name")   # my_list contains copies of a,b,c,3
+```
+
+--
+
+
+```r
+# The following is a slice containing the second member of my_list, which is a copy of b.
+my_list[2]
+```
+
+```
+FALSE [[1]]
+FALSE [1] "aa" "bb" "cc" "dd" "ee"
+```
+
+--
+
+
+```r
+# Member Reference
+# In order to reference a list member directly, we have to use the double square bracket "[[]]" operator. 
+# The following object my_list[[2]] is the second member of my_list. 
+# In other words, my_list[[2]] is a copy of b, but is not a slice containing b or its copy.
+
+my_list[[2]]
+```
+
+```
+FALSE [1] "aa" "bb" "cc" "dd" "ee"
+```
+
+---
+
+## 3.  Data Frames
+
+**Create a data frame**
+
+```r
+# Create a data frame
+my_df_no_colnames &lt;- data.frame(
+ student_name = c("John", "Buba"),
+  Gender = c(2,3)
+)
+my_df_no_colnames 
+```
+
+```
+FALSE   student_name Gender
+FALSE 1         John      2
+FALSE 2         Buba      3
+```
+
+--
+
+**Assign col names**
+
+
+```r
+names(my_df_no_colnames) &lt;- c("Student", "Sex")
+my_df_no_colnames
+```
+
+```
+FALSE   Student Sex
+FALSE 1    John   2
+FALSE 2    Buba   3
+```
+
+---
+## Create data frame from a vector
+
+
+```r
+# Vectors
+student_names &lt;- c("Michael", "Bello", "Tonye", "Tayo","Yusuf", "Success", "Aisha")
+gender &lt;- c("M","M","F","F","M","M", "F")
+
+# create a Data frame
+# 
+my_df &lt;- data.frame(student_names,gender)
+my_df
+```
+
+```
+FALSE   student_names gender
+FALSE 1       Michael      M
+FALSE 2         Bello      M
+FALSE 3         Tonye      F
+FALSE 4          Tayo      F
+FALSE 5         Yusuf      M
+FALSE 6       Success      M
+FALSE 7         Aisha      F
+```
+
+--
+
+
+```r
+class(my_df)
+```
+
+```
+FALSE [1] "data.frame"
+```
+
+
+---
+## 4. Tibble
+ Create a tibble
+
+```r
+#tibble(1:5, c("a", "b", "c", "d", "e"))
+
+# Check this out! What went wrong?
+#tibble(1:5, c("a","d","e")) 
+```
+
+---
+ ## Create tibble with named columns
+
+```r
+name = c("john", "alexis", "Steph", "Quiera")
+age  = c(24, 44, 26, 25)
+
+my_tbl &lt;- tibble(
+  name = c("jojo", "sofia", "robin", "sisie"),
+  age  = c(14, 13, 16, 15)
+)
+```
+
+
+
+```r
+my_tbl &lt;- tibble(name,age)
+# Print my_df to the screen
+my_tbl
+```
+
+```
+FALSE # A tibble: 4 × 2
+FALSE   name     age
+FALSE   &lt;chr&gt;  &lt;dbl&gt;
+FALSE 1 john      24
+FALSE 2 alexis    44
+FALSE 3 Steph     26
+FALSE 4 Quiera    25
+```
+
+---
+
+## Basic Operators 
+*(Some are like the excel Operators)*
+
+``` r
+## Arithmetic  operators
+2 + 2
+2/2
+2*2
+2^2
+23 %% 2 # Remainder -&gt; 1
+```
+
+```r
+## Logical operators
+2 == 2
+42 &gt;= 2
+2 &lt;= 42
+2 != 42
+```
+---
+class: inverse middle center 
+
+# 🚥
+
+## Control statements
+ Loops, if statements, repeat, switch
+
+---
+
+## for loop
+ 
+ A for loop is used to iterate over a vector in R programming.
+
+```r
+for (val in 1:5){
+  # statement 
+  print(val)
+} 
+
+for (num in c(1,2,3,4,5)) {  
+  print(num + 2)
+}                      
+
+```
+--
+
+
+```r
+x &lt;- c(2,5,3,9,8,11,6)
+count &lt;- 0
+for (val in x) {
+  if(val %% 3 == 0)  
+    count = count+1
+}
+print(count)
+```
+
+```
+FALSE [1] 3
+```
+
+---
+
+### while loop - used to loop until a specific condition is met.
+
+```r
+w &lt;- 5
+while (w &lt; 10) {
+  print(w)
+  w &lt;-  w+1
+}
+```
+
+```
+FALSE [1] 5
+FALSE [1] 6
+FALSE [1] 7
+FALSE [1] 8
+FALSE [1] 9
+```
+
+
+---
+
+## if statements
+
+```r
+a = 10
+b = 40
+
+if(a!=b){
+
+"a is not equal to b"
+
+}else{
+"a is equal to b"
+
+}
+
+## options
+if_else(a!=b, "a is not equal to b", "a is equal to b")
+ifelse(a!=b, "a is not equal to b", "a is equal to b")
+```
+
+
+
+---
 class: center, middle
 
-# Title
+# Thanks!
 
----
+Slides created via the R packages:
 
-# Agenda
+[**xaringan**](https://github.com/yihui/xaringan)&lt;br&gt;
+[gadenbuie/xaringanthemer](https://github.com/gadenbuie/xaringanthemer)
 
-1. Introduction
-2. Deep-dive
-3. ...
-
----
-
-# Introduction
-
+The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](http://yihui.name/knitr), and [R Markdown](https://rmarkdown.rstudio.com).
     </textarea>
-    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
-    </script>
-    <script>
-      var slideshow = remark.create();
-    </script>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "16:9",
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
   </body>
 </html>

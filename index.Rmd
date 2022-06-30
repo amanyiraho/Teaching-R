@@ -1,0 +1,757 @@
+---
+title: "R capacity building session"
+subtitle: "Introduction to R"  
+author: 
+  - "NPHCDA"
+  - "AFENET GEEKS"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      ratio: 16:9
+      countIncrementalSlides: true
+---
+
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE, cache= T, comment=F, message=FALSE,warning=FALSE, echo=FALSE)
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  fig.width=9, fig.height=3.5, fig.retina=3,
+  out.width = "100%",
+  cache = FALSE,
+  echo = TRUE,
+  message = FALSE, 
+  warning = FALSE,
+  hiline = TRUE
+)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+library(tidyverse)
+style_duo_accent(
+  primary_color = "#1381B0",
+  secondary_color = "#FF961C",
+  inverse_header_color = "#FFFFFF"
+)
+```
+
+
+## What we are going to talk today!
+
+- The R Universe
+- Getting set up
+- Working with data
+- Base functions
+
+
+---
+
+# What is R?
+
+- R is an Open Source and free programming language for
+statistical computing and graphics.
+
+- Available for Windows, Mac, and Linux
+
+- R can be easily extended with “packages”:
+
+- Used to perform interesting tasks such as linear regression, logistic regression, time series, statistical inference, and much more. 
+
+- used for creating data visuals, reports, geographical analysis and web applications.
+
+
+---
+
+# Why R?
+
+- Free and open source 
+
+- The community &#x1F468;&#x200D;&#x1F4BB;
+
+
+- One of the most popular tools for data analysis
+
+- Can develop Web applications, dashboards, automatic reports, APIs, 
+
+   **This Presentation was created using R** 
+
+- Can easily integrate with other Languages Python, SQL, JavaScript, CSS 
+
+
+---
+
+# Some downsides of R
+
+.left-column[
+
+
+]
+
+.right-column[
+It’s a programming language, not a point-and-click solution 🥶
+
+Slower than compiled languages like C, C++
+]
+
+---
+
+name: colors
+
+# Where do we really start
+
+--
+
+### Install R from  [cloud.r-project.org](cloud.r-project.org)
+ 
+  [mac (https://cran.r-project.org/bin/macosx/)](https://cran.r-project.org/bin/macosx/) 
+  
+  [windows (https://cran.r-project.org/bin/windows/base/)](https://cran.r-project.org/bin/windows/base/)
+_______________________
+--
+
+### Install R-Studio IDE
+ 
+- [rstudio IDE (https://www.rstudio.com/products/rstudio/download/)](https://www.rstudio.com/products/rstudio/download/) 
+
+
+---
+class: middle center
+## RStudio cloud
+
+RStudio Cloud is another product from [rstudio](rstudio.com) which gives you a lightweight, cloud-based version of RStudio Desktop IDE that allows you work with your r scripts, projects online and also share with your colleagues. 
+
+
+---
+class: inverse center middle
+
+# Lets first slow down !!!
+
+**Any questions?**
+
+
+---
+class: inverse center middle
+
+## Lets dive into actual R
+
+---
+
+## Simple baisc R code
+```r
+8 + 8
+
+## [1] 16
+```
+
+```r
+sum(2, 2, 4)
+
+## [1] 8
+
+```
+
+```r
+1==1
+## [1] TRUE
+```
+---
+class: middle inverse center
+
+## Okey How and where do we write that in R!!
+
+---
+## Default R view
+<center><img 
+src="https://raw.githubusercontent.com/amanyiraho/Teaching-R/main/intro-presentation/assets/images/r-console.png" alt="GithHub Octocat" height="450px" /></center>
+
+---
+## Default R studio View
+<center><img 
+src="https://raw.githubusercontent.com/amanyiraho/Teaching-R/main/intro-presentation/assets/images/r-studio-without-source-plane.png" alt="GithHub Octocat" height="500px width = "900px" /></center>
+
+---
+## What you will be normally working with!!
+
+<center><img 
+src="https://raw.githubusercontent.com/amanyiraho/Teaching-R/main/intro-presentation/assets/images/r-studio-with-source-panel.png" alt="GithHub Octocat" height="500px" width = "900px" /></center>
+
+---
+class: center middle inverse
+
+## Okey But we need to see that in action !!
+
+![Message was not clear](https://media.giphy.com/media/l2Sq1s7U0ReCLxMFG/giphy.gif)
+
+---
+
+## Project and file structure in RStudio
+
+- Files: scripts, data files, etc
+- Projects: New Project, R Package, other project types
+
+## Set and get working directory
+
+```r
+# insert your directory location or address into the double quotation mark
+ setwd("images/alison/")
+
+# get and display working directory location or address
+getwd()
+```
+
+
+---
+# Packages
+
+Install packages
+
+**What is a package?**
+
+```r
+install.packages(’ggplot2’)
+```
+Load packages
+```r
+library(ggplot2)
+```
+**How do you know a package exists?**
+
+> CRAN, Google, and being part of a community  
+
+---
+
+## Getting help and resources
+
+- type question mark before a function or package name to get more information as show below
+
+```r
+?mean
+```
+
+- get specific package related to your field or profession from CRAN online using the search format as shown.
+
+> **https://cran.r-project.org› package=packagename**
+
+> *search on stackoverflow, Google, build your network*
+
+
+---
+
+## Lets plot a graph with ggplot2
+
+**looking how to create a dataframe**
+
+_Wait, what is a dataframe?_
+
+
+```{r eval=T}
+sn <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10) 
+
+weight <-  c(80, 70, 65.5, 50, 120, 72, 80, 70, 60, 77)
+
+age <-  c(30,30, 31, 33, 33, 33, 35, 36, 37, 34 )
+
+age_data <- data.frame(sn , weight, age )
+
+kableExtra::kable(head(age_data, 4),  format = 'html')
+```
+
+---
+
+## Basic ggplot2
+
+```{r eval=T}
+library(ggplot2)
+
+ggplot(data = age_data,   mapping = aes(x = age, y = weight)) +
+  geom_point()
+ 
+```
+
+---
+class: middle center
+
+## Wait cooome on, that's boring!!
+
+**Lets use Public Health data!!**
+
+![Message was not clear](https://media.giphy.com/media/c8RnNkhxXUhGkkpjJO/giphy.gif)
+
+
+---
+
+### Lets import some sormas data into R
+
+*Tips* 
+
+1. You should know your working directory use `getwd()` function
+1. From there use that path to locate your data
+1. Make sure you know how your data is structured 
+
+
+#### Importing data
+
+```{r}
+sormas_measles_data_messy <- read.csv("/Volumes/Robinson/R projects/Teaching-R/intro-presentation/data/sormas_mealses_cases_2021.csv")
+kableExtra::kable( head(sormas_measles_data_messy))
+```
+
+---
+
+### This is the power of a programming language you don't have to delete the first 2 row all the time.
+
+
+```{r}
+
+sormas_measles_data <- read.csv("/Volumes/Robinson/R projects/Teaching-R/intro-presentation/data/sormas_mealses_cases_2021.csv",
+                                skip = 2)
+
+kableExtra::kable( head(sormas_measles_data))
+
+```
+
+---
+
+class: middle center
+
+## Lets answer some Public Health Questions with the sormas data
+
+Qn 1: What is the number of Women and Men are in this dataset?
+
+Qn 2: Which age-groups exist and how many are they ?
+
+Qn 3: Which State has the highest number of vaccinated individuals?
+
+**You can suggest yours!!**
+
+---
+class: middle 
+
+## Do you see that we need to find a way to manipulate the data.
+For example for the above questions:
+
+1. We need to find a way to count Women and Men in the dataset
+
+2. Find all unique age-groups and count them.
+
+3. Filter the dataset by those who are vaccinated and then count by state.
+
+> **But jumping into data manipulation right now is like,**
+>
+> **Dropping you in the middle of a Forest and they tell you to**
+>
+> **Find your way home**
+>
+> **Honestly you need survival skills**
+
+---
+class: middle center inverse
+
+# Let's get some survival skills🔥🏕️
+
+### R langunge Basics!!
+
+---
+class: middle center 
+## Data Types and Structures in R
+
+### Understanding Data Types
+
+The best and right way to start your journey learning R programming language is to have a solid understanding of data types and structures and when to use them.
+
+To begin, **remember that in R, everything is an object**.
+
+
+---
+
+## a)  Character 
+ 
+symbols, letters, words or phrases in single or double quotation marks
+
+```r
+"bread"
+
+'coffee'
+
+"12"
+
+"I need 2 cups of coffee."
+
+```
+
+```{r}
+class("12") 
+typeof("12") 
+
+```
+
+---
+
+## b)  numeric
+
+```r
+1
+
+123
+
+12.3
+
+```
+```{r}
+
+class(12.3) 
+typeof(123) 
+```
+
+---
+
+## c)  Integer 
+
+a special case of numeric data, discrete values like unique identifiers eg. student id. To store a value as an integer, we need to specify it as such. Integers are usually followed by the capital 'L' notation to denote the data type.
+
+```r
+12
+
+100
+
+10L
+
+```
+```{r}
+class(100) 
+typeof(10L) 
+```
+
+---
+
+## d)  logical - logical or boolean values i.e. TRUE or FALSE.
+
+```r
+FALSE
+TRUE
+```
+
+```{r}
+class(TRUE) 
+```
+
+
+---
+
+## Summary about data types
+
+```r
+1L # integer
+1.0 # numeric
+’1’ # character
+TRUE == 1 # logical
+FALSE == 0 # logical
+NA # NA
+factor() # factor
+
+#You can check to see what type a variable is with class(x) or
+is.numeric(), is.character(),# etc
+
+```
+
+---
+
+## R facts
+
+```r
+x <- 10 # Assigment operator
+
+#[1] 10
+
+y <- 1:x # Sequence
+
+#  [1]  1  2  3  4  5  6  7  8  9 10
+
+```
+indexing in R starts from one (1) **NOT** like python, or C which starts with zero (0)
+
+```r
+y[0]     #indexing using zero (0) doesn't work it returns a zero integer
+#integer(0)
+
+y[1] # Element selection starts with one (1)
+```
+
+
+---
+
+## Functions in R
+
+### Why functions?
+
+-   automate common tasks
+
+-   named function making codes easier to understand.
+
+-   update code easily when requirements or tasks are changed.
+
+-   eliminate copy and paste of same codes in multiple places in a single script
+
+> **We shall get back to functions is a big topic**
+
+
+---
+class: middle center
+
+## Building Block
+ 
+ The elements of each of these data types can be combined to form data structures, such as data frames, atomic vectors, etc.
+
+---
+class: middle center
+
+## Understanding Data structures
+
+Data structures are a  means of organizing data for effective use. 
+This helps to reduce the challenges faced in managing space and performance of our codes.
+
+As with other programming languages, in R programming language, different variables are used to store different data which are stored in reserved area in the system memory.
+
+
+In this section, we will be covering the **some** of the data structures in R:
+
+---
+
+## 1.  Vectors
+
+
+```{r}
+#c()
+
+my_vector <- c("bags", "shoes", "wrist-watch", "money")
+
+my_vector
+```
+
+--
+
+```{r}
+my_alphabets <- letters[1:10]
+
+my_alphabets
+
+```
+
+---
+
+## 2.  Lists
+
+```{r}
+# lists
+a = c(2, 3, 5) 
+b = c("aa", "bb", "cc", "dd", "ee") 
+c = c(TRUE, FALSE, TRUE, FALSE, FALSE) 
+my_list = list(a, b, c, 3, "My name")   # my_list contains copies of a,b,c,3
+```
+
+--
+
+```{r}
+# The following is a slice containing the second member of my_list, which is a copy of b.
+my_list[2]
+```
+
+--
+
+```{r}
+# Member Reference
+# In order to reference a list member directly, we have to use the double square bracket "[[]]" operator. 
+# The following object my_list[[2]] is the second member of my_list. 
+# In other words, my_list[[2]] is a copy of b, but is not a slice containing b or its copy.
+
+my_list[[2]]
+```
+
+---
+
+## 3.  Data Frames
+
+**Create a data frame**
+```{r}
+# Create a data frame
+my_df_no_colnames <- data.frame(
+ student_name = c("John", "Buba"),
+  Gender = c(2,3)
+)
+my_df_no_colnames 
+```
+
+--
+
+**Assign col names**
+
+```{r}
+names(my_df_no_colnames) <- c("Student", "Sex")
+my_df_no_colnames
+```
+
+---
+## Create data frame from a vector
+
+```{r}
+# Vectors
+student_names <- c("Michael", "Bello", "Tonye", "Tayo","Yusuf", "Success", "Aisha")
+gender <- c("M","M","F","F","M","M", "F")
+
+# create a Data frame
+# 
+my_df <- data.frame(student_names,gender)
+my_df
+```
+
+--
+
+```{r}
+class(my_df)
+```
+
+
+---
+## 4. Tibble
+ Create a tibble
+```{r}
+#tibble(1:5, c("a", "b", "c", "d", "e"))
+
+# Check this out! What went wrong?
+#tibble(1:5, c("a","d","e")) 
+```
+
+---
+ ## Create tibble with named columns
+```{r}
+name = c("john", "alexis", "Steph", "Quiera")
+age  = c(24, 44, 26, 25)
+
+my_tbl <- tibble(
+  name = c("jojo", "sofia", "robin", "sisie"),
+  age  = c(14, 13, 16, 15)
+)
+
+```
+
+
+```{r}
+my_tbl <- tibble(name,age)
+# Print my_df to the screen
+my_tbl
+
+```
+
+---
+
+## Basic Operators 
+*(Some are like the excel Operators)*
+
+``` r
+## Arithmetic  operators
+2 + 2
+2/2
+2*2
+2^2
+23 %% 2 # Remainder -> 1
+```
+
+```r
+## Logical operators
+2 == 2
+42 >= 2
+2 <= 42
+2 != 42
+```
+---
+class: inverse middle center 
+
+# 🚥
+
+## Control statements
+ Loops, if statements, repeat, switch
+
+---
+
+## for loop
+ 
+ A for loop is used to iterate over a vector in R programming.
+
+```r
+for (val in 1:5){
+  # statement 
+  print(val)
+} 
+
+for (num in c(1,2,3,4,5)) {  
+  print(num + 2)
+}                      
+
+```
+--
+
+```{r}
+
+x <- c(2,5,3,9,8,11,6)
+count <- 0
+for (val in x) {
+  if(val %% 3 == 0)  
+    count = count+1
+}
+print(count)
+
+```
+
+---
+
+### while loop - used to loop until a specific condition is met.
+```{r}
+w <- 5
+while (w < 10) {
+  print(w)
+  w <-  w+1
+}
+```
+
+
+---
+
+## if statements
+
+```r
+a = 10
+b = 40
+
+if(a!=b){
+
+"a is not equal to b"
+
+}else{
+"a is equal to b"
+
+}
+
+## options
+if_else(a!=b, "a is not equal to b", "a is equal to b")
+ifelse(a!=b, "a is not equal to b", "a is equal to b")
+```
+
+
+
+---
+class: center, middle
+
+# Thanks!
+
+Slides created via the R packages:
+
+[**xaringan**](https://github.com/yihui/xaringan)<br>
+[gadenbuie/xaringanthemer](https://github.com/gadenbuie/xaringanthemer)
+
+The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](http://yihui.name/knitr), and [R Markdown](https://rmarkdown.rstudio.com).
